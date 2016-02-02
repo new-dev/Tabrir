@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+
+  "name": "Tabrir",
+  "description": "Tabrir allows you to keep collections of websites that will all open on a single click",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "https://ajax.googleapis.com/",
+    "storage"
+  ]
+}
