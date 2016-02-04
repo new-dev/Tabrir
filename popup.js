@@ -1,7 +1,11 @@
-// Copyright (c) 2015 Timothy Jensen & Alexander Tappin. All rights reserved.
+import {bootstrap} from "angular2/platform/browser";
+import {Component} from "angular2/core";
 
-var app = angular.module('app', []);
-
-app.controller('appCtrl', function($scope){
-  $scope.title = "Tabrir";
+@Component({
+    selector: 'app',
+    template: '<div>Hi</div>'
 });
+
+class App{}
+
+bootstrap(App);

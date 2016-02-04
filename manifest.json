@@ -6,8 +6,14 @@
   "version": "1.0",
 
   "browser_action": {
-    "default_icon": "icon.png",
+    "default_icon": "resources/tabrirIcon16.png",
     "default_popup": "popup.html"
+  },
+  "icons": {
+    "16": "resources/tabrirIcon16.png",
+    "48": "resources/tabrirIcon48.png",
+    "128": "resources/tabrirIcon128.png",
+    "300": "resources/tabrirIcon300.png"
   },
   "permissions": [
     "activeTab",
