@@ -4,7 +4,7 @@
   "name": "Tabrir",
   "description": "Tabrir allows you to keep collections of websites that will all open on a single click",
   "version": "1.0",
-
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "browser_action": {
     "default_icon": "resources/tabrirIcon16.png",
     "default_popup": "popup.html"
