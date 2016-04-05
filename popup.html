@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html ng-app>
 <head>
     <title>Tabrir</title>
     <link href="https://cdn.rawgit.com/jgthms/bulma/master/css/bulma.min.css" rel="stylesheet">
@@ -7,17 +7,12 @@
     <link rel="stylesheet" href="animate.css">
     <link rel="stylesheet" href="style.css">
 
-    <script src="resources/angularBeta3/Rx.umd.js"></script>
-    <script src="resources/angularBeta3/angular2-polyfills.js"></script>
-    <script src="resources/angularBeta3/angular2-all.umd.dev.js"></script>
-
+    <script src="resources/angular.min.js"></script>
     <script src="popup.js"></script>
 </head>
 
 <body>
-
-    <blah-app></blah-app>
-
+    <div ng-include="'open-tabs.html'"></div>
 </body>
 
 </html>
