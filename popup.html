@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app>
+<html data-ng-app="app">
 <head>
     <title>Tabrir</title>
     <link href="https://cdn.rawgit.com/jgthms/bulma/master/css/bulma.min.css" rel="stylesheet">
@@ -11,7 +11,7 @@
     <script src="popup.js"></script>
 </head>
 
-<body>
+<body ng-controller="appCtrl">
     <div ng-include="'open-tabs.html'"></div>
 </body>
 
