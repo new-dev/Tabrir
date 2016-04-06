@@ -1,4 +1,4 @@
-angular.module('app').factory('groupFactory', function() {
+angular.module('app').factory('groupFactory', function($q) {
     var groupFactory = {};
 
     groupFactory.newGroup = function() {
@@ -25,6 +25,16 @@ angular.module('app').factory('groupFactory', function() {
             });
             window.close();
         });
+    };
+
+    groupFactory.loadGroups = function() {
+        var deferred = $q.defer();
+        chrome.storage.sync.get(function(storedGroups) {
+            if (!chrome.runtime.error) {
+                deferred.resolve(storedGroups.data);
+            }
+        });
+        return deferred.promise;
     };
 
     groupFactory.editGroup = function() {
