@@ -7,6 +7,8 @@ angular.module('app').factory('groupFactory', function() {
             groupName: 'groupName',
             urlList: ["https://google.com", "https://angular.io/"]
         }
+
+        groupFactory.saveGroup(newGroupData);
     };
 
     groupFactory.saveGroup = function(newGroupData) {
