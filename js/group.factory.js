@@ -37,6 +37,10 @@ angular.module('app').factory('groupFactory', function($q) {
         return deferred.promise;
     };
 
+    groupFactory.openGroup = function() {
+
+    };
+
     groupFactory.editGroup = function() {
 
     };
