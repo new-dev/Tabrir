@@ -9,5 +9,9 @@ app.controller('appCtrl', function($scope, tabService, groupFactory){
 
     $scope.createGroup = function() {
         groupFactory.newGroup();
-    }
+    };
+
+    $scope.openGroup = function() {
+        groupFactory.openGroup("test1");
+    };
 });
