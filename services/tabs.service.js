@@ -1,5 +1,5 @@
 angular.module('app')
-    .service('tabs.service', [
+    .service('tabsService', [
         function() {
             this.open = function() {
                 var urlList = [];
