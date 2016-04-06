@@ -2,5 +2,8 @@
 var app = angular.module('app', []);
 
 app.controller('appCtrl', function($scope, tabService){
-    tabService.open();
+
+    var urlList = ["https://google.com", "https://angular.io/"];
+    tabService.openUrls(urlList);
+
 });
