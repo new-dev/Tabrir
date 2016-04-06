@@ -9,8 +9,20 @@ angular.module('app').factory('groupFactory', function() {
         }
     };
 
-    groupFactory.saveGroup = function() {
-
+    groupFactory.saveGroup = function(newGroupData) {
+        chrome.storage.sync.get(function(storedGroups) {
+            if(typeof(storedGroups.data) !== 'undefined' && storedGroups.data instanceof Array) {
+                storedGroups.data.unshift(newGroupData);
+            } else {
+                storedGroups.data = [newGroupData];
+            }
+            chrome.storage.sync.set(storedGroups, function() {
+                if (chrome.runtime.error) {
+                    console.log("RuntimeError.");
+                }
+            });
+            window.close();
+        });
     };
 
     groupFactory.editGroup = function() {
