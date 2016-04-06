@@ -4,9 +4,9 @@ angular.module('app').factory('groupFactory', function($q) {
     groupFactory.newGroup = function() {
         var newGroupData = {
             // Using mock data here
-            groupName: 'groupName',
+            groupName: 'test1',
             urlList: ["https://google.com", "https://angular.io/"]
-        }
+        };
 
         groupFactory.saveGroup(newGroupData);
     };
@@ -37,8 +37,17 @@ angular.module('app').factory('groupFactory', function($q) {
         return deferred.promise;
     };
 
-    groupFactory.openGroup = function() {
+    groupFactory.openGroup = function(query) {
+        var allGroups;
+        groupFactory.loadGroups().then(function(data) {
+            allGroups = data;
+            var selectedGroup = groupFactory.filter(allGroups, query);
+            selectedGroup.urlList.map(url => chrome.tabs.create({url: url}));
+        });
+    };
 
+    groupFactory.filter = function(groups, query) {
+        return groups.groupName = query;
     };
 
     groupFactory.editGroup = function() {
