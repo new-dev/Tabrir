@@ -1,7 +1,7 @@
 
 var app = angular.module('app', []);
 
-app.controller('appCtrl', function($scope, tabService, groupFactory){
+app.controller('appCtrl', function($scope, groupFactory){
 
     //Uncomment the below two lines to test open url's
     //var urlList = ["https://google.com", "https://angular.io/"];
