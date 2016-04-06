@@ -42,12 +42,14 @@ angular.module('app').factory('groupFactory', function($q) {
         groupFactory.loadGroups().then(function(data) {
             allGroups = data;
             var selectedGroup = groupFactory.filter(allGroups, query);
-            selectedGroup.urlList.map(url => chrome.tabs.create({url: url}));
+            selectedGroup[0].urlList.map(url => chrome.tabs.create({url: url}));
         });
     };
 
     groupFactory.filter = function(groups, query) {
-        return groups.groupName = query;
+        return groups.filter(function (el) {
+            return el.groupName === query;
+        });
     };
 
     groupFactory.editGroup = function() {
