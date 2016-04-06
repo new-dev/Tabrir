@@ -1,5 +1,3 @@
-angular.module('app')
-    .service('groupService', [
-        function() {
-        }
-    ]);
+angular.module('app').service('groupService', function() {
+
+});
