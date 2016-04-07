@@ -8,7 +8,7 @@ app.controller('appCtrl', function($scope, groupFactory, iconService){
     };
 
     $scope.open = function() {
-        groupFactory.open("test1");
+        groupFactory.open("test2");
     };
 
     $scope.getIcon = function(url) {

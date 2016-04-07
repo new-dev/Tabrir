@@ -1,39 +1,21 @@
-angular.module('app').factory('groupFactory', function($q) {
+angular.module('app').factory('groupFactory', function($q, chromeStorageService) {
     var groupFactory = {};
 
     groupFactory.create = () => {
         var newGroupData = {
             // Using mock data here
-            groupName: 'test1',
+            groupName: 'test2',
             urlList: ["https://google.com", "https://angular.io/"]
         };
 
         groupFactory.save(newGroupData);
     };
 
-    groupFactory.save = (newGroupData) => {
-        chrome.storage.sync.get(storedGroups => {
-            if(typeof(storedGroups.data) !== 'undefined' && storedGroups.data instanceof Array) {
-                storedGroups.data.unshift(newGroupData);
-            } else {
-                storedGroups.data = [newGroupData];
-            }
-            chrome.storage.sync.set(storedGroups, () => {
-                if (chrome.runtime.error) {
-                    console.log("RuntimeError.");
-                }
-            });
-            window.close();
-        });
-    };
+    groupFactory.save = (newGroupData) => chromeStorageService.save(newGroupData);
 
     groupFactory.load = () => {
         var deferred = $q.defer();
-        chrome.storage.sync.get(storedGroups => {
-            if (!chrome.runtime.error) {
-                deferred.resolve(storedGroups.data);
-            }
-        });
+        chromeStorageService.load(deferred);
         return deferred.promise;
     };
 
