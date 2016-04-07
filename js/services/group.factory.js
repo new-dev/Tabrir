@@ -20,12 +20,8 @@ angular.module('app').factory('groupFactory', function($q, chromeStorageService)
     };
 
     groupFactory.open = (query) => {
-        var allGroups;
-        groupFactory.load().then(data => {
-            allGroups = data;
-            var selectedGroup = groupFactory.filter(allGroups, query);
-            selectedGroup[0].urlList.map(url => chrome.tabs.create({url: url}));
-        });
+        groupFactory.load().then(data =>
+            groupFactory.filter(data, query)[0].urlList.map(url => chrome.tabs.create({url:url})));
     };
 
     groupFactory.filter = (groups, query) => groups.filter(el => el.groupName === query);
