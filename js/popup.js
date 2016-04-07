@@ -4,11 +4,11 @@ var app = angular.module('app', []);
 app.controller('appCtrl', function($scope, groupFactory, iconService){
 
     $scope.createGroup = function() {
-        groupFactory.newGroup();
+        groupFactory.create();
     };
 
-    $scope.openGroup = function() {
-        groupFactory.openGroup("test1");
+    $scope.open = function() {
+        groupFactory.open("test1");
     };
 
     $scope.getIcon = function(url) {

@@ -1,17 +1,17 @@
 angular.module('app').factory('groupFactory', function($q) {
     var groupFactory = {};
 
-    groupFactory.newGroup = () => {
+    groupFactory.create = () => {
         var newGroupData = {
             // Using mock data here
             groupName: 'test1',
             urlList: ["https://google.com", "https://angular.io/"]
         };
 
-        groupFactory.saveGroup(newGroupData);
+        groupFactory.save(newGroupData);
     };
 
-    groupFactory.saveGroup = (newGroupData) => {
+    groupFactory.save = (newGroupData) => {
         chrome.storage.sync.get(storedGroups => {
             if(typeof(storedGroups.data) !== 'undefined' && storedGroups.data instanceof Array) {
                 storedGroups.data.unshift(newGroupData);
@@ -27,7 +27,7 @@ angular.module('app').factory('groupFactory', function($q) {
         });
     };
 
-    groupFactory.loadGroups = () => {
+    groupFactory.load = () => {
         var deferred = $q.defer();
         chrome.storage.sync.get(storedGroups => {
             if (!chrome.runtime.error) {
@@ -37,9 +37,9 @@ angular.module('app').factory('groupFactory', function($q) {
         return deferred.promise;
     };
 
-    groupFactory.openGroup = (query) => {
+    groupFactory.open = (query) => {
         var allGroups;
-        groupFactory.loadGroups().then(data => {
+        groupFactory.load().then(data => {
             allGroups = data;
             var selectedGroup = groupFactory.filter(allGroups, query);
             selectedGroup[0].urlList.map(url => chrome.tabs.create({url: url}));
@@ -48,11 +48,11 @@ angular.module('app').factory('groupFactory', function($q) {
 
     groupFactory.filter = (groups, query) => groups.filter(el => el.groupName === query);
 
-    groupFactory.editGroup = () => {
+    groupFactory.edit = () => {
 
     };
 
-    groupFactory.deleteGroup = () => {
+    groupFactory.erase = () => {
 
     };
 
