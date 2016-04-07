@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('app').factory('groupFactory', function($q, chromeStorageService) {
     var groupFactory = {};
 

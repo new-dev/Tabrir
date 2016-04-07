@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('app').service('chromeStorageService', function() {
 
     this.save = (newGroupData) => {

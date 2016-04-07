@@ -1,6 +1,5 @@
-/**
- * Created by ajt on 4/6/2016.
- */
+'use strict';
+
 angular.module('app').controller('newGroupCtrl', function($scope, groupFactory, iconService) {
     $scope.tempUrls = ["www.google.com"];
 
