@@ -10,10 +10,10 @@ angular.module('app').controller('viewManagerCtrl', function($scope) {
         currentView = "default";
     };
     $scope.showDefaultView = function showDefaultView() {
-        return currentView == "default";
+        return currentView === "default";
     };
     $scope.showCreateView = function showCreateView() {
-        return currentView == "create";
+        return currentView === "create";
     }
 });
 
