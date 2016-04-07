@@ -1,7 +1,7 @@
 angular.module('app').factory('groupFactory', function($q) {
     var groupFactory = {};
 
-    groupFactory.newGroup = function() {
+    groupFactory.newGroup = () => {
         var newGroupData = {
             // Using mock data here
             groupName: 'test1',
@@ -11,14 +11,14 @@ angular.module('app').factory('groupFactory', function($q) {
         groupFactory.saveGroup(newGroupData);
     };
 
-    groupFactory.saveGroup = function(newGroupData) {
-        chrome.storage.sync.get(function(storedGroups) {
+    groupFactory.saveGroup = (newGroupData) => {
+        chrome.storage.sync.get(storedGroups => {
             if(typeof(storedGroups.data) !== 'undefined' && storedGroups.data instanceof Array) {
                 storedGroups.data.unshift(newGroupData);
             } else {
                 storedGroups.data = [newGroupData];
             }
-            chrome.storage.sync.set(storedGroups, function() {
+            chrome.storage.sync.set(storedGroups, () => {
                 if (chrome.runtime.error) {
                     console.log("RuntimeError.");
                 }
@@ -27,9 +27,9 @@ angular.module('app').factory('groupFactory', function($q) {
         });
     };
 
-    groupFactory.loadGroups = function() {
+    groupFactory.loadGroups = () => {
         var deferred = $q.defer();
-        chrome.storage.sync.get(function(storedGroups) {
+        chrome.storage.sync.get(storedGroups => {
             if (!chrome.runtime.error) {
                 deferred.resolve(storedGroups.data);
             }
@@ -37,26 +37,22 @@ angular.module('app').factory('groupFactory', function($q) {
         return deferred.promise;
     };
 
-    groupFactory.openGroup = function(query) {
+    groupFactory.openGroup = (query) => {
         var allGroups;
-        groupFactory.loadGroups().then(function(data) {
+        groupFactory.loadGroups().then(data => {
             allGroups = data;
             var selectedGroup = groupFactory.filter(allGroups, query);
             selectedGroup[0].urlList.map(url => chrome.tabs.create({url: url}));
         });
     };
 
-    groupFactory.filter = function(groups, query) {
-        return groups.filter(function (el) {
-            return el.groupName === query;
-        });
-    };
+    groupFactory.filter = (groups, query) => groups.filter(el => el.groupName === query);
 
-    groupFactory.editGroup = function() {
+    groupFactory.editGroup = () => {
 
     };
 
-    groupFactory.deleteGroup = function() {
+    groupFactory.deleteGroup = () => {
 
     };
 
