@@ -1,0 +1,9 @@
+<!--This page will decide which view to load-->
+
+<div ng-if="showDefaultView()" ng-controller="openTabsCtrl">
+    <opentabs></opentabs>
+</div>
+
+<div ng-if="showCreateView()" ng-controller="newGroupCtrl">
+    <newgroup></newgroup>
+</div>
