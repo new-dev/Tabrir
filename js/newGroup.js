@@ -4,19 +4,13 @@
 angular.module('app').controller('newGroupCtrl', function($scope, groupFactory, iconService) {
     $scope.tempUrls = ["www.google.com"];
 
-    $scope.addUrlBox = function addUrlBox() {
-        $scope.tempUrls.push("");
-    };
-    $scope.removeUrl = function removeUrl(index) {
-        $scope.tempUrls.splice(index, 1);
-    };
+    $scope.addUrlBox = () => $scope.tempUrls.push("");
 
-    $scope.createGroup = function() {
-        groupFactory.create();
-    };
-    $scope.getIcon = function(url) {
-        $scope.icon = iconService.favicon(url);
-    }
+    $scope.removeUrl = (index) => $scope.tempUrls.splice(index, 1);
+
+    $scope.createGroup = () => groupFactory.create();
+
+    $scope.getIcon = (url) => iconService.favicon(url);
 
 });
 

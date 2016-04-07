@@ -3,18 +3,15 @@
  */
 angular.module('app').controller('viewManagerCtrl', function($scope) {
     var currentView = "default";
-    $scope.switchToCreateView = function switchToCreateView() {
-        currentView = "create";
-    };
-    $scope.switchToDefaultView = function switchToDefaultView() {
-        currentView = "default";
-    };
-    $scope.showDefaultView = function showDefaultView() {
-        return currentView === "default";
-    };
-    $scope.showCreateView = function showCreateView() {
-        return currentView === "create";
-    }
+
+    $scope.switchToCreateView = () => currentView = "create";
+
+    $scope.switchToDefaultView = () => currentView = "default";
+
+    $scope.showDefaultView = () => currentView === "default";
+
+    $scope.showCreateView = () => currentView === "create";
+
 });
 
 //eventually we can break each part into its own directive as well
