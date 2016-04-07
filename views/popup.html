@@ -6,17 +6,19 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/animate.css">
     <link rel="stylesheet" href="../css/style.css">
-
     <script src="../resources/angular.min.js"></script>
     <script src="../js/popup.js"></script>
+    <!--controllers-->
+    <script src="../js/openTabs.js"></script>
+    <script src="../js/newGroup.js"></script>
+    <!--services-->
     <script src="../js/services/group.factory.js"></script>
     <script src="../js/services/icon.service.js"></script>
     <script src="../js/services/chrome.storage.service.js"></script>
 </head>
 
-<body ng-controller="appCtrl">
-    <div ng-include="'templates/open-tabs.html'"></div>
-    <button id="new group" data-ng-click="open()">clickme</button>
+<body ng-controller="openTabsCtrl">
+    <opentabs></opentabs>
 </body>
 
 </html>
