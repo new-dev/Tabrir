@@ -14,7 +14,7 @@ angular.module('app').service('chromeStorageService', function() {
             });
             window.close();
         });
-    }
+    };
 
     this.load = (deferred) => {
         chrome.storage.sync.get(storedGroups => {
@@ -22,6 +22,6 @@ angular.module('app').service('chromeStorageService', function() {
                 deferred.resolve(storedGroups.data);
             }
         });
-    }
+    };
 
 });
