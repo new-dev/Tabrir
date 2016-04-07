@@ -6,7 +6,20 @@
 <p class="control">
     <input class="input" type="text" placeholder="Text input">
 </p>
-<label class="label">Url</label>
-<p class="control has-icon has-icon-right">
-    <input class="input is-danger" type="text" placeholder="www.google.com" value="">
-</p>
+<span ng-repeat="url in tempUrls track by $index">
+    <p style="display: inline-block">Tab {{$index + 1}}</p>
+    <span class="icon is-small is-danger" style="display: inline-block; cursor: pointer;" ng-click="removeUrl($index)">
+        <i class="fa fa-minus"></i>
+    </span>
+    <p class="control has-icon has-icon-right">
+        <input class="input is-danger" type="text" placeholder="{{url}}" value="">
+    </p>
+
+</span>
+<br>
+<a class="button is-small" ng-click="addUrlBox()">
+    <span class="icon is-small">
+        <i class="fa fa-plus"></i>
+    </span>
+    <span>add url</span>
+</a>
