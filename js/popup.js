@@ -12,7 +12,6 @@ app.controller('appCtrl', function($scope, groupFactory, iconService){
     };
 
     $scope.getIcon = function(url) {
-        $scope.icon = iconService.getFavicon(url);
-        console.log($scope.icon);
+        $scope.icon = iconService.favicon(url);
     }
 });
