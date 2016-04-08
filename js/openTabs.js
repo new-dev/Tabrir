@@ -2,6 +2,7 @@
 
 angular.module('app').controller('openTabsCtrl', function($scope, groupFactory, iconService) {
     $scope.open = () => groupFactory.open("test2");
+    $scope.groupsExist = () => groupFactory.groupsExist();
     $scope.getIcon = (url) => $scope.icon = iconService.favicon(url);
 });
 
