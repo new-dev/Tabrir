@@ -24,7 +24,7 @@ angular.module('app').factory('groupFactory', function($q, chromeStorageService)
             groupFactory.filter(data, query)[0].urlList.map(url => chrome.tabs.create({url:url})));
     };
 
-    groupFactory.groupsExist = () => groupFactory.load().then(data => data.length!== 0);
+    groupFactory.groupsExist = () => groupFactory.load().then(data => data != null);
     groupFactory.save = (newGroupData) => chromeStorageService.save(newGroupData);
     groupFactory.filter = (groups, query) => groups.filter(el => el.groupName === query);
     groupFactory.edit = () => {};
