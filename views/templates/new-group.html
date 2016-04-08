@@ -4,7 +4,7 @@
 <br>
 <label class="label">Name</label>
 <p class="control">
-    <input id="group-name" class="input" type="text" placeholder="Text input">
+    <input id="group-name" class="input" type="text" ng-model="groupName" placeholder="Enter group name">
 </p>
 <span ng-repeat="url in tempUrls track by $index">
     <p style="display: inline-block">Tab {{$index + 1}}</p>
