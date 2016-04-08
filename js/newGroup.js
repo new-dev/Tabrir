@@ -5,7 +5,7 @@ angular.module('app').controller('newGroupCtrl', function($scope, groupFactory, 
 
     $scope.addUrlBox = () => $scope.tempUrls.push("");
     $scope.removeUrl = (index) => $scope.tempUrls.splice(index, 1);
-    $scope.createGroup = () => groupFactory.create();
+    $scope.createGroup = () => groupFactory.create(document.getElementById("group-name").value, $scope.tempUrls);
     $scope.getIcon = (url) => iconService.favicon(url);
 });
 
