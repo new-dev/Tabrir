@@ -3,11 +3,10 @@
 angular.module('app').factory('groupFactory', function($q, chromeStorageService) {
     var groupFactory = {};
 
-    groupFactory.create = () => {
+    groupFactory.create = (name, urls) => {
         var newGroupData = {
-            // Using mock data here
-            groupName: 'test2',
-            urlList: ["https://google.com", "https://angular.io/"]
+            groupName: name,
+            urlList: urls
         };
 
         groupFactory.save(newGroupData);
