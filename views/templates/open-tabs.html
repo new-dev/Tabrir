@@ -3,46 +3,62 @@
 </div>
 
 <button ng-click="switchToCreateView()">Switch To Other View</button>
-<i class="fa fa-circle-thin is-primary" style="font-size: 100px;"></i>
-<div style="position: relative; display: inline-block; right: 72px; top: 25px;">
-    <div class="icon-block">
-        <img src="http://www.google.com/s2/favicons?domain=www.facebook.com">
-        <img src="http://www.google.com/s2/favicons?domain=www.twitter.com">
-        <img src="http://www.google.com/s2/favicons?domain=www.github.com">
+
+
+<div ng-repeat="group in groups">
+    <i class="fa fa-circle-thin is-primary" style="font-size: 100px;"></i>
+    <div style="position: relative; display: inline-block; right: 72px; top: 25px;">
+        <div class="icon-block">
+            <div ng-repeat="url in group.urlList">
+                {{getIcon(url)}}
+                <img ng-src="{{icon}}">
+            </div>
+        <!--<div ng-repeat="url in {{group.urls}}" class="icon-block">-->
+        <!--<img ng-src="{{getIcon(url)}}">-->
+        </div>
     </div>
+    {{group.groupName}}
 </div>
-fun time
+<!--<i class="fa fa-circle-thin is-primary" style="font-size: 100px;"></i>-->
+<!--<div style="position: relative; display: inline-block; right: 72px; top: 25px;">-->
+    <!--<div class="icon-block">-->
+        <!--<img src="http://www.google.com/s2/favicons?domain=www.facebook.com">-->
+        <!--<img src="http://www.google.com/s2/favicons?domain=www.twitter.com">-->
+        <!--<img src="http://www.google.com/s2/favicons?domain=www.github.com">-->
+    <!--</div>-->
+<!--</div>-->
+<!--fun time-->
 
-<br>
+<!--<br>-->
 
-<i class="fa fa-circle-thin is-primary" style="font-size: 100px;"></i>
-<div style="position: relative; display: inline-block; right: 72px; top: 25px;">
-    <div class="icon-block">
-        <img src="http://www.google.com/s2/favicons?domain=www.gmail.com">
-        <img src="http://www.google.com/s2/favicons?domain=www.yahoo.com">
-        <img src="http://www.google.com/s2/favicons?domain=www.linkedin.com">
-        <img src="http://www.google.com/s2/favicons?domain=www.stackoverflow.com">
-    </div>
-</div>
-work
+<!--<i class="fa fa-circle-thin is-primary" style="font-size: 100px;"></i>-->
+<!--<div style="position: relative; display: inline-block; right: 72px; top: 25px;">-->
+    <!--<div class="icon-block">-->
+        <!--<img src="http://www.google.com/s2/favicons?domain=www.gmail.com">-->
+        <!--<img src="http://www.google.com/s2/favicons?domain=www.yahoo.com">-->
+        <!--<img src="http://www.google.com/s2/favicons?domain=www.linkedin.com">-->
+        <!--<img src="http://www.google.com/s2/favicons?domain=www.stackoverflow.com">-->
+    <!--</div>-->
+<!--</div>-->
+<!--work-->
 
-<br>
+<!--<br>-->
 
-<i class="fa fa-circle-thin is-primary" style="font-size: 100px;"></i>
-<div style="position: relative; display: inline-block; right: 72px; top: 25px;">
-    <div class="icon-block">
-        <img src="http://www.google.com/s2/favicons?domain=www.jsfiddle.net">
-        <img src="http://www.google.com/s2/favicons?domain=www.slack.com">
-    </div>
-</div>
-Casual
+<!--<i class="fa fa-circle-thin is-primary" style="font-size: 100px;"></i>-->
+<!--<div style="position: relative; display: inline-block; right: 72px; top: 25px;">-->
+    <!--<div class="icon-block">-->
+        <!--<img src="http://www.google.com/s2/favicons?domain=www.jsfiddle.net">-->
+        <!--<img src="http://www.google.com/s2/favicons?domain=www.slack.com">-->
+    <!--</div>-->
+<!--</div>-->
+<!--Casual-->
 
-<br>
+<!--<br>-->
 
-<i class="fa fa-circle-thin is-primary" style="font-size: 100px;"></i>
-<div style="position: relative; display: inline-block; right: 72px; top: 25px;">
-    <div class="icon-block">
-         <img src="http://www.google.com/s2/favicons?domain=www.oit.edu">
-    </div>
-</div>
-School
+<!--<i class="fa fa-circle-thin is-primary" style="font-size: 100px;"></i>-->
+<!--<div style="position: relative; display: inline-block; right: 72px; top: 25px;">-->
+    <!--<div class="icon-block">-->
+         <!--<img src="http://www.google.com/s2/favicons?domain=www.oit.edu">-->
+    <!--</div>-->
+<!--</div>-->
+<!--School-->
