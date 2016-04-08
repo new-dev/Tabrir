@@ -2,6 +2,7 @@
 
 angular.module('app').factory('groupFactory', function($q, chromeStorageService) {
     var groupFactory = {};
+    groupFactory.groups = '';
 
     groupFactory.create = (name, urls) => {
         var newGroupData = {
@@ -20,6 +21,7 @@ angular.module('app').factory('groupFactory', function($q, chromeStorageService)
 
     groupFactory.open = (urlList) => urlList.map(url => chrome.tabs.create({url:url}));
     groupFactory.groupsExist = () => groupFactory.load().then(data => data != null);
+    groupFactory.groups = () => groupFactory.load().then(data => groupFactory.groups = data);
     groupFactory.save = (newGroupData) => chromeStorageService.save(newGroupData);
     groupFactory.edit = () => {};
     groupFactory.erase = () => {};

@@ -10,6 +10,7 @@ angular.module('app').controller('viewManagerCtrl', function($scope) {
 });
 
 //eventually we can break each part into its own directive as well
-angular.module('app').directive('manageview', function() {
+angular.module('app').directive('manageview', function(groupFactory) {
+    groupFactory.groups();
     return { scope: false, templateUrl: '../../views/templates/manage-views.html' }
 });
