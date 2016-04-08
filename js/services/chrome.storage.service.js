@@ -43,5 +43,4 @@ angular.module('app').service('chromeStorageService', function() {
 
     this.getViewState = () => chrome.storage.local.get('viewState', (state) => state);
     this.clearViewState = () => chrome.storage.local.remove('viewState');
-
 });
