@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('app').controller('viewManagerCtrl', function($scope) {
+angular.module('app').controller('viewManagerCtrl', function($scope, groupFactory) {
     var currentView = "default";
 
     $scope.switchToCreateView = () => currentView = "create";

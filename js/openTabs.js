@@ -3,8 +3,9 @@
 angular.module('app').controller('openTabsCtrl', function($scope, groupFactory, iconService) {
     $scope.open = (urlList) => groupFactory.open(urlList);
     $scope.groupsExist = () => groupFactory.groupsExist();
-    $scope.getIcon = (url) => $scope.icon = iconService.favicon(url);
-    $scope.groups = groupFactory.groups;
+    $scope.getIcon = (url) => iconService.favicon(url);
+    $scope.groupFactory = groupFactory;
+    $scope.groups = $scope.groupFactory.groupData;
 });
 
 //eventually we can break each part into its own directive as well
