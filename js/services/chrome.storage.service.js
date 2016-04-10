@@ -25,6 +25,18 @@ angular.module('app').service('chromeStorageService', function() {
         });
     };
 
+    this.erase = (index) => {
+        chrome.storage.sync.get(storedGroups => {
+            console.log("deleting");
+            storedGroups.cloudKey.splice(index, 1);
+            chrome.storage.sync.set(storedGroups, () => {
+                if (chrome.runtime.error) {
+                    console.log("RuntimeError.");
+                }
+            });
+        });
+    };
+
     this.load = (deferred) => {
         chrome.storage.sync.get(storedGroups => {
             if (!chrome.runtime.error) {
@@ -42,5 +54,5 @@ angular.module('app').service('chromeStorageService', function() {
     };
 
     this.getViewState = () => chrome.storage.local.get('viewState', (state) => state);
-    this.clearViewState = () => chrome.storage.local.remove('viewState');
+    this.clearViewState = () => chrome.storage.local.erase('viewState');
 });

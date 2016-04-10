@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('app').controller('newGroupCtrl', function($scope, groupFactory, iconService) {
-    $scope.tempUrls = ["www.google.com"];
+    $scope.tempUrls = ["http://www.google.com"];
     $scope.groupName;
 
     $scope.addUrlBox = () => $scope.tempUrls.push("");
