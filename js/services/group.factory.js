@@ -24,7 +24,9 @@ angular.module('app').factory('groupFactory', function($q, chromeStorageService)
     groupFactory.groups = () => groupFactory.load().then(data => groupFactory.groupData = data);
     groupFactory.save = (newGroupData) => chromeStorageService.save(newGroupData);
     groupFactory.edit = () => {};
-    groupFactory.erase = () => {};
+    groupFactory.erase = (index) => {
+        chromeStorageService.erase(index);
+    };
 
     return groupFactory;
 });

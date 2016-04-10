@@ -6,6 +6,7 @@ angular.module('app').controller('openTabsCtrl', function($scope, groupFactory, 
     $scope.getIcon = (url) => iconService.favicon(url);
     $scope.groupFactory = groupFactory;
     $scope.groups = $scope.groupFactory.groupData;
+    $scope.erase = (index) => groupFactory.erase(index);
 });
 
 //eventually we can break each part into its own directive as well
