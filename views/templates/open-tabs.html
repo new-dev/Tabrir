@@ -8,14 +8,14 @@
 
 <span ng-repeat="group in groups() track by $index">
     <i class="fa fa-circle-thin is-primary" style="font-size: 100px;"></i>
-    <div ng-click=open(group.urlList) style="cursor:pointer; position: relative; display: inline-block; right: 72px; top: 25px;">
+    <div ng-click=groupFactory.open(group.urlList) style="cursor:pointer; position: relative; display: inline-block; right: 72px; top: 25px;">
         <div class="icon-block">
             <span ng-repeat="url in group.urlList">
-                <img ng-src="{{getIcon(url)}}">
+                <img ng-src="{{iconService.favicon(url)}}">
             </span>
         </div>
     </div>
-    <button ng-click="erase($index)">delete</button>
+    <button ng-click="groupFactory.erase($index)">delete</button>
     {{group.groupName}}
     <br>
 </span>

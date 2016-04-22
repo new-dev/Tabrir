@@ -1,11 +1,8 @@
 'use strict';
 
 angular.module('app').controller('openTabsCtrl', function($scope, groupFactory, iconService) {
-    $scope.open = (urlList) => groupFactory.open(urlList);
-    $scope.groupsExist = () => groupFactory.groupsExist();
-    $scope.getIcon = (url) => iconService.favicon(url);
+    $scope.iconService = iconService;
     $scope.groupFactory = groupFactory;
-    $scope.erase = (index) => groupFactory.erase(index);
     $scope.groups = () => {
         groupFactory.groups();
         return $scope.groupFactory.groupData;
