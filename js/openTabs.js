@@ -3,6 +3,7 @@
 angular.module('app').controller('openTabsCtrl', function($scope, groupFactory, iconService) {
     $scope.iconService = iconService;
     $scope.groupFactory = groupFactory;
+    $scope.deleteGroup = (index) => groupFactory.erase(index);
     $scope.groups = () => {
         groupFactory.groups();
         return $scope.groupFactory.groupData;
