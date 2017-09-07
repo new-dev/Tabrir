@@ -48,7 +48,7 @@ angular.module('app').service('chromeStorageService', function() {
     this.update = (updatedGroupData, index) => {
         chrome.storage.syn.get(storedGroups => {
             console.log("updating");
-            storedGroups.cloudKey.splice(index, 1, updateadGroupData);
+            storedGroups.cloudKey.splice(index, 1, updatedGroupData);
             chrome.storage.sync.set(storedGroups, () => {
                 if (chrome.runtime.error) {
                     console.log("RuntimeError.");
