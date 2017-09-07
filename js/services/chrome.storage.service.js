@@ -45,6 +45,18 @@ angular.module('app').service('chromeStorageService', function() {
         });
     };
 
+    this.update = (updatedGroupData, index) => {
+        chrome.storage.syn.get(storedGroups => {
+            console.log("updating");
+            storedGroups.cloudKey.splice(index, 1, updateadGroupData);
+            chrome.storage.sync.set(storedGroups, () => {
+                if (chrome.runtime.error) {
+                    console.log("RuntimeError.");
+                }
+            });
+        });
+    };
+
     this.setViewState = () => {
         chrome.storage.local.set({'viewState': 'create'}, () => {
             if (chrome.runtime.error) {
